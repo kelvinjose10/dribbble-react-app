@@ -1,0 +1,154 @@
+.container__form {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+}
+
+.container__form > p {
+  padding-top: 30px;
+  text-align: right;
+  span {
+    padding-right: 30px;
+  }
+}
+
+.container__form__input {
+  margin-top: 120px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  form {
+    max-width: 30%;
+  }
+}
+.form-group {
+  margin-bottom: 0px !important;
+}
+
+hr.divider__form {
+  overflow: visible;
+  padding: 0;
+  margin-bottom: 40px;
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  color: #6e6d7a;
+  text-align: center;
+}
+
+hr.divider__form:after {
+  content: 'Or';
+  display: inline-block;
+  position: relative;
+  top: -7px;
+  font: normal 14px/14px 'Haas Grot Text R Web', 'Helvetica Neue', Helvetica,
+    Arial, sans-serif;
+  padding: 0 16px;
+  background: #fff;
+}
+
+.minor__text {
+  margin-top: 15px;
+  font-size: 11px;
+}
+.btn__main {
+  text-decoration: none;
+  margin-bottom: 40px !important;
+  background-color: $altone;
+}
+.icon {
+  fill: currentColor;
+  height: 13px;
+  width: 13px;
+  vertical-align: middle;
+  margin-top: -3px;
+  margin-right: 3px;
+}
+.dribbble-logo {
+  width: 40%;
+  height: auto;
+}
+
+.btn__create {
+  background-color: $secundary;
+  color: white;
+
+  &:hover {
+    opacity: 0.7;
+    background-color: $secundary;
+    color: white;
+  }
+}
+
+.app__background {
+  background-color: #f2d184;
+}
+.app__background__login {
+  background-color: #f1cdd7;
+}
+
+.app__logo {
+  position: relative;
+  top: 340px;
+  max-width: 100%;
+}
+
+.app__logo__login {
+  position: relative;
+  top: 240px;
+  max-width: 100%;
+}
+
+.label-color {
+  color: #866118 !important;
+}
+.label-color__login {
+  color: #865c6c !important;
+}
+.label-background {
+  position: relative;
+  max-width: 90%;
+  top: 120px;
+  padding-left: 30px;
+  padding-right: 30px;
+  color: inherit;
+  font: bold 32px/38px 'Haas Grot Text R Web', 'Helvetica Neue', Helvetica,
+    Arial, sans-serif;
+}
+
+.app__desc {
+  position: relative;
+  top: 370px;
+  padding-left: 30px;
+  padding-right: 30px;
+  span {
+    text-decoration-line: underline;
+  }
+}
+
+.app__desc__login {
+  position: relative;
+  top: 290px;
+  padding-left: 30px;
+  padding-right: 30px;
+  span {
+    text-decoration-line: underline;
+  }
+}
+
+.app__logo__label {
+  max-width: 100%;
+  position: relative;
+  top: 90px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.app__login__form {
+  margin-top: 230px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  form {
+    max-width: 30%;
+  }
+}

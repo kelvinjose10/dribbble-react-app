@@ -1,0 +1,52 @@
+html,
+body {
+  font-family: 'Haas Grot Text R Web', 'Helvetica Neue', Helvetica, Arial,
+    sans-serif;
+  height: 100vh;
+  width: 100vw;
+}
+h2 {
+  font: bold 24px/29px 'Haas Grot Text R Web', 'Helvetica Neue', Helvetica,
+    Arial, sans-serif;
+  margin-bottom: 26px;
+  font-size: 1.6rem;
+}
+
+label {
+  display: block;
+  font: bold 18px/24px 'Haas Grot Text R Web', 'Helvetica Neue', Helvetica,
+    Arial, sans-serif;
+  color: #0d0c22;
+}
+
+input {
+  margin-bottom: 20px !important;
+  background-color: #f3f3f4!important;
+  border: none!important;
+  &:focus {
+    background-color: white!important;
+    box-shadow: 0 0 0 4px rgba(234,76,137,0.1)!important;
+    border-color: rgba(0,0,0,0.1)!important;
+  } 
+  &:hover{
+    background-color: white!important;
+    box-shadow: 0 0 0 4px rgba(234,76,137,0.1)!important;
+    border-color: rgba(0,0,0,0.1)!important;
+  } 
+  
+}
+
+.pointer {
+  color: $alttow;
+  text-decoration: none;
+  cursor: pointer;
+  &hover {
+    color: #7263d4;  
+  }
+}
+
+.container__main {
+  height: 100vh;
+}
+
+
