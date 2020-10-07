@@ -1,23 +1,49 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import useForm from '../../hooks/useForm';
+import { validateFields } from '../../helpers/validateInput';
 
 const SignUp = () => {
-  const [stateForm, handleChangeInput] = useForm({
+  const [stateForm, handleChangeInput, validInput] = useForm({
     nameForm: '',
-    uernameFrom: '',
+    uernameForm: '',
     emailForm: '',
     passForm: '',
     checkForm: false,
+    errors: [],
   });
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log(stateForm);
+
+    if (isFormInValid()) {
+      console.log('invalid form');
+    } else {
+      console.log('form correcto');
+    }
   };
 
-  const { nameForm, uernameFrom, emailForm, passForm, checkForm } = stateForm;
+  const {
+    nameForm,
+    uernameForm,
+    emailForm,
+    passForm,
+    checkForm,
+    errors,
+  } = stateForm;
 
+  const isFormInValid = () => {
+    let data = [...errors];
+    data = validateFields(stateForm, data);
+
+    validInput(data);
+
+    return data.length > 0;
+  };
+
+  const showValidation = (value) => {
+    return errors.some((error) => error.target === value);
+  };
   return (
     <div className='col-9 container__form'>
       <p>
@@ -49,7 +75,9 @@ const SignUp = () => {
               <input
                 type='text'
                 name='nameForm'
-                className='form-control'
+                className={`form-control ${
+                  showValidation('nameForm') ? 'validate-input' : ''
+                } `}
                 value={nameForm}
                 onChange={handleChangeInput}
               />
@@ -58,9 +86,11 @@ const SignUp = () => {
               <label>Username</label>
               <input
                 type='username'
-                name='uernameFrom'
-                value={uernameFrom}
-                className='form-control'
+                name='uernameForm'
+                value={uernameForm}
+                className={`form-control ${
+                  showValidation('uernameForm') ? 'validate-input' : ''
+                } `}
                 onChange={handleChangeInput}
               />
             </div>
@@ -70,7 +100,9 @@ const SignUp = () => {
                 type='email'
                 name='emailForm'
                 value={emailForm}
-                className='form-control'
+                className={`form-control ${
+                  showValidation('emailForm') ? 'validate-input' : ''
+                } `}
                 onChange={handleChangeInput}
               />
             </div>
@@ -80,7 +112,9 @@ const SignUp = () => {
                 type='password'
                 name='passForm'
                 value={passForm}
-                className='form-control'
+                className={`form-control ${
+                  showValidation('passForm') ? 'validate-input' : ''
+                } `}
                 autoComplete='new-password'
                 placeholder='6+ characters'
                 onChange={handleChangeInput}

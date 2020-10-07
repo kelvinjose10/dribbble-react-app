@@ -21,19 +21,18 @@ label {
 
 input {
   margin-bottom: 20px !important;
-  background-color: #f3f3f4!important;
-  border: none!important;
+  background-color: #f3f3f4 !important;
+  border: none !important;
   &:focus {
-    background-color: white!important;
-    box-shadow: 0 0 0 4px rgba(234,76,137,0.1)!important;
-    border-color: rgba(0,0,0,0.1)!important;
-  } 
-  &:hover{
-    background-color: white!important;
-    box-shadow: 0 0 0 4px rgba(234,76,137,0.1)!important;
-    border-color: rgba(0,0,0,0.1)!important;
-  } 
-  
+    background-color: white !important;
+    box-shadow: 0 0 0 4px rgba(234, 76, 137, 0.1) !important;
+    border-color: rgba(0, 0, 0, 0.1) !important;
+  }
+  &:hover {
+    background-color: white !important;
+    box-shadow: 0 0 0 4px rgba(234, 76, 137, 0.1) !important;
+    border-color: rgba(0, 0, 0, 0.1) !important;
+  }
 }
 
 .pointer {
@@ -41,7 +40,7 @@ input {
   text-decoration: none;
   cursor: pointer;
   &hover {
-    color: #7263d4;  
+    color: #7263d4;
   }
 }
 
@@ -49,4 +48,6 @@ input {
   height: 100vh;
 }
 
-
+.validate-input {
+  border: 1px solid #ff00009e !important;
+}

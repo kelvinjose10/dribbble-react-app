@@ -9,6 +9,7 @@ const SignIn = () => {
   const [stateForm, handleChangeInput] = useForm({
     emailForm: 'Kelvin hernandez',
     passForm: '123456',
+    errors: [],
   });
 
   const handleLogin = (e) => {

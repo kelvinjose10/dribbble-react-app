@@ -3,20 +3,24 @@ import { useState } from 'react';
 const useForm = (initialValues = {}) => {
   const [stateForm, setStateForm] = useState(initialValues);
 
-  const resetInput = () => {
-    setStateForm(initialValues);
-  };
-
   const handleChangeInput = ({ target }) => {
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const name = target.name;
     setStateForm({
       ...stateForm,
       [name]: value,
+      errors: stateForm.errors.filter((error) => error.target !== name),
     });
   };
 
-  return [stateForm, handleChangeInput, resetInput];
+  const validInput = (input) => {
+    setStateForm({
+      ...stateForm,
+      errors: input,
+    });
+  };
+
+  return [stateForm, handleChangeInput, validInput];
 };
 
 export default useForm;
