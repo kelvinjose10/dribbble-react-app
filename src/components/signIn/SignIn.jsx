@@ -1,27 +1,30 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { login, startGoogleSingIn } from '../../actions/auth';
+import { startLoginEmailPassword, startGoogleSingIn } from '../../actions/auth';
 import useForm from '../../hooks/useForm';
 
 const SignIn = () => {
   const dispatch = useDispatch();
   const [stateForm, handleChangeInput] = useForm({
-    emailForm: 'Kelvin hernandez',
-    passForm: '123456',
+    emailForm: '',
+    passForm: '',
     errors: [],
   });
 
+  const { loading } = useSelector((state) => state.ui);
+
+  const { emailForm, passForm } = stateForm;
+
   const handleLogin = (e) => {
     e.preventDefault();
-    dispatch(login(12345, emailForm));
+    dispatch(startLoginEmailPassword(emailForm, passForm));
   };
 
   const hanldeLoginGoogle = () => {
     dispatch(startGoogleSingIn());
   };
 
-  const { emailForm, passForm } = stateForm;
   return (
     <div className='col-9 container__form'>
       <p>
@@ -75,7 +78,16 @@ const SignIn = () => {
             <p style={{ fontSize: '15px' }} className='pl-2'>
               <span className='pointer'>Forgot password?</span>
             </p>
-            <button className='btn  btn-block btn__create'>Sign In</button>
+            <button className='btn  btn-block btn__create' disabled={loading}>
+              {loading ? (
+                <span>
+                  <i className='fa fa-spinner fa-spin' aria-hidden='true'></i>{' '}
+                  Loading
+                </span>
+              ) : (
+                'Sign In'
+              )}
+            </button>
           </div>
         </form>
       </div>

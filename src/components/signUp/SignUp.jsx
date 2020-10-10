@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import useForm from '../../hooks/useForm';
 import { validateFields } from '../../helpers/validateInput';
+import { startRegisterWithEmailPassword } from '../../actions/auth';
+import { useDispatch } from 'react-redux';
 
 const SignUp = () => {
   const [stateForm, handleChangeInput, validInput] = useForm({
@@ -13,16 +15,6 @@ const SignUp = () => {
     errors: [],
   });
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-
-    if (isFormInValid()) {
-      console.log('invalid form');
-    } else {
-      console.log('form correcto');
-    }
-  };
-
   const {
     nameForm,
     uernameForm,
@@ -31,6 +23,20 @@ const SignUp = () => {
     checkForm,
     errors,
   } = stateForm;
+
+  const dispatch = useDispatch();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    if (isFormInValid()) {
+      console.log('invalid form');
+    } else {
+      console.log('form correcto');
+
+      dispatch(startRegisterWithEmailPassword(emailForm, passForm, nameForm));
+    }
+  };
 
   const isFormInValid = () => {
     let errorsInputs = [...errors];
