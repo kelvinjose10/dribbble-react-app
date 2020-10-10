@@ -29,7 +29,7 @@ const SignIn = () => {
     <div className='col-9 container__form'>
       <p>
         Not a member?
-        <Link style={{ textDecoration: 'none' }} to='/auth/register'>
+        <Link style={{ textDecoration: 'none' }} to='/register'>
           <span className='pointer'> Sign up now</span>
         </Link>
       </p>

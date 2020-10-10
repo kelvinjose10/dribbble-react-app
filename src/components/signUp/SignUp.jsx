@@ -33,7 +33,6 @@ const SignUp = () => {
       console.log('invalid form');
     } else {
       console.log('form correcto');
-
       dispatch(startRegisterWithEmailPassword(emailForm, passForm, nameForm));
     }
   };
