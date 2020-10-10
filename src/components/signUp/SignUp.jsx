@@ -33,16 +33,26 @@ const SignUp = () => {
   } = stateForm;
 
   const isFormInValid = () => {
-    let data = [...errors];
-    data = validateFields(stateForm, data);
+    let errorsInputs = [...errors];
+    errorsInputs = validateFields(stateForm, errorsInputs);
 
-    validInput(data);
+    validInput(errorsInputs);
 
-    return data.length > 0;
+    return errorsInputs.length > 0;
   };
 
   const showValidation = (value) => {
     return errors.some((error) => error.target === value);
+  };
+
+  const renderMessageError = (target) => {
+    let messageError;
+    if (errors.length > 0) {
+      messageError = errors.find((err) => err.target === target);
+      return messageError ? messageError.error : null;
+    } else {
+      return null;
+    }
   };
   return (
     <div className='col-9 container__form'>
@@ -81,6 +91,9 @@ const SignUp = () => {
                 value={nameForm}
                 onChange={handleChangeInput}
               />
+              <p style={{ fontSize: '12px', color: 'red' }}>
+                {renderMessageError('nameForm')}
+              </p>
             </div>
             <div className='form-group col-md-6'>
               <label>Username</label>
@@ -93,6 +106,9 @@ const SignUp = () => {
                 } `}
                 onChange={handleChangeInput}
               />
+              <p style={{ fontSize: '12px', color: 'red' }}>
+                {renderMessageError('uernameForm')}
+              </p>
             </div>
             <div className='form-group col-md-12'>
               <label>Email</label>
@@ -105,6 +121,9 @@ const SignUp = () => {
                 } `}
                 onChange={handleChangeInput}
               />
+              <p style={{ fontSize: '12px', color: 'red' }}>
+                {renderMessageError('emailForm')}
+              </p>
             </div>
             <div className='form-group col-md-12'>
               <label>Password</label>
@@ -119,6 +138,9 @@ const SignUp = () => {
                 placeholder='6+ characters'
                 onChange={handleChangeInput}
               />
+              <p style={{ fontSize: '12px', color: 'red' }}>
+                {renderMessageError('passForm')}
+              </p>
             </div>
             <div className='form-group'>
               <div className='form-check'>
